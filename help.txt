@@ -1,0 +1,6 @@
+1. npm init
+2. npm instal lite-server
+
+3. bower init 
+4. bower install bootstrap --save
+5. bower install angular --save
