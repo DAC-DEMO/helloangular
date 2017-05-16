@@ -2,30 +2,79 @@
 <html ng-app="app">
 
 <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <script src="./bower_components/angular/angular.min.js"></script>
     <script src="./assets/main.js"></script>
 </head>
 
 
-<body>
-
-    <div ng-controller="first">
-        {{mypost.address.city}}
-        <span>{{username}}</span>
-        <br>{{mypost.post}}
-
-        <br>
-        <button>LIKE {{mypost.like}}</button>
-        <button>DIS-LIKE {{mypost.dislike}}</button>
-
-        <br>
-        <div ng-repeat="refPost in postList">
-            {{refPost.post}} <br>
+<body ng-controller="first">
+    <nav class="navbar navbar-inverse " style="background-color: #031fb8;
+    border-color: #558fbd;">
+        <div class="navbar-header">
+            <a class="navbar-brand " style="color: white;
+    font-weight: bold;
+    text-shadow: 0 0 50px #FFEB3B;">{{appName}}</a>
         </div>
 
-        {{postList[0].post}}
-    </div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-6 my-margin-top">
+                <input type="text" class="form-control" placeholder="Post Content" ng-model="newPost.POST">
+            </div>
+            <div class="col-sm-1">
+                <button type="button" class="btn btn-primary navbar-btn" ng-click="createPost();">Post Content</button>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container" id="parentId">
+
+        <!--block starts here -->
+        <div class="row" ng-repeat="post in postList">
+            <div class="col-sm-offset-3 col-sm-6 jumbotron ">
+                <blockquote class="quote" style="border-left: 5px solid #607D8B;">
+                    {{post.POST}}
+                </blockquote>
+
+                <div style="margin-top: 4px;">
+                    <button class="btn btn-primary col-sm-3" onclick="increaseCountUsingJQuery(this);">
+            <span class="glyphicon glyphicon-thumbs-up my-icon-font-size" ></span>
+            <span class="my-icon-font-size">{{post.LIKE_COUNT}}</span>
+        </button>
+
+                    <button class="btn btn-success col-sm-3" onclick="increaseCountUsingJQuery(this);">
+            <span class="glyphicon glyphicon-thumbs-down my-icon-font-size" ></span>
+            <span class="my-icon-font-size">{{post.DISLIKE_COUNT}}</span>
+        </button>
+
+                    <button class="btn btn-danger col-sm-3" onclick="increaseCountUsingJQuery(this);">
+            <span class="glyphicon glyphicon-heart my-icon-font-size" ></span>
+            <span class="my-icon-font-size">{{post.SUPER_LIKE_COUNT}}</span>
+        </button>
+
+
+                    <button class="btn btn-info col-sm-3" onclick="increaseCountUsingJQuery(this);">
+            <span class="glyphicon glyphicon-comment my-icon-font-size" ></span>
+            <span class="my-icon-font-size">0</span>
+        </button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

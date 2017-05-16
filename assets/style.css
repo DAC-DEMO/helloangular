@@ -1,0 +1,14 @@
+.mybrand {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 50px #FFEB3B;
+}
+
+.my-margin-top {
+    margin-top: 8px;
+}
+
+.quote {
+    text-shadow: 0 0 20px greenyellow;
+    font-family: cursive;
+}
